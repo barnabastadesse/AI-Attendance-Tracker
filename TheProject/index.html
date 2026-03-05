@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Teacher Dashboard for AI Attendance Tracker">
+    <title>Teacher Dashboard</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <input type="checkbox" id="sidebar-toggle" class="sidebar-toggle">
+    <div class="dashboard">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>TeachDash</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="#" class="active"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                    <li><a href="#"><i class="fas fa-users"></i> Students</a></li>
+                    <li><a href="#"><i class="fas fa-user-check"></i> Attendance</a></li>
+                    <li><a href="#"><i class="fas fa-graduation-cap"></i> Grades</a></li>
+                    <li><a href="#"><i class="fas fa-envelope"></i> Messages</a></li>
+                    <li><a href="#"><i class="fas fa-cog"></i> Settings</a></li>
+                </ul>
+            </nav>
+            <div class="sidebar-profile">
+                <div class="profile-info">
+                    <img src="https://via.placeholder.com/40" alt="Teacher Avatar" class="avatar">
+                    <div class="profile-details">
+                        <p class="profile-name">Dr. Smith</p>
+                        <p class="profile-role">Math Teacher</p>
+                    </div>
+                </div>
+                <button class="btn-logout"><i class="fas fa-sign-out-alt"></i> Logout</button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="main-header">
+                <div class="header-left">
+                    <label for="sidebar-toggle" class="hamburger">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </label>
+                    <h1>Student Overview</h1>
+                </div>
+                <div class="header-right">
+                    <div class="search-bar">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Search students...">
+                    </div>
+                    <div class="notification" data-tooltip="3 new notifications">
+                        <i class="fas fa-bell"></i>
+                        <span class="badge">3</span>
+                    </div>
+                </div>
+            </header>
+
+            <div class="content-grid">
+                <!-- Cards -->
+                <div class="card">
+                    <div class="card-icon" style="background-color: #3498db;">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="card-content">
+                        <p class="metric">150</p>
+                        <h3>Total Students</h3>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-icon" style="background-color: #27ae60;">
+                        <i class="fas fa-check"></i>
+                    </div>
+                    <div class="card-content">
+                        <p class="metric">142</p>
+                        <h3>Present Today</h3>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-icon" style="background-color: #f39c12;">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="card-content">
+                        <p class="metric">5</p>
+                        <h3>Late Arrivals</h3>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-icon" style="background-color: #e74c3c;">
+                        <i class="fas fa-user-clock"></i>
+                    </div>
+                    <div class="card-content">
+                        <p class="metric">3</p>
+                        <h3>Absent</h3>
+                    </div>
+                </div>
+
+                <!-- Table -->
+                <div class="table-container">
+                    <div class="table-header">
+                        <h3>Student Directory</h3>
+                        <div class="table-controls">
+                            <select class="filter-select">
+                                <option value="">All Classes</option>
+                                <option value="math">Math 101</option>
+                                <option value="science">Science 201</option>
+                                <option value="english">English 301</option>
+                            </select>
+                            <button class="btn-export" data-tooltip="Download as CSV">
+                                <i class="fas fa-download"></i> Export
+                            </button>
+                        </div>
+                    </div>
+                    <table class="attendance-table">
+                        <thead>
+                            <tr>
+                                <th>Student</th>
+                                <th>ID</th>
+                                <th>Class</th>
+                                <th>Attendance</th>
+                                <th>Date</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="student-info">
+                                        <img src="https://via.placeholder.com/32" alt="John Doe" class="student-avatar">
+                                        <span>John Doe</span>
+                                    </div>
+                                </td>
+                                <td>12345</td>
+                                <td>Math 101</td>
+                                <td><span class="badge-good">95%</span></td>
+                                <td>2026-03-05</td>
+                                <td><span class="badge-active">Active</span></td>
+                                <td>
+                                    <button class="action-btn view" data-tooltip="View student profile"><i class="fas fa-eye"></i></button>
+                                    <button class="action-btn edit" data-tooltip="Edit student info"><i class="fas fa-edit"></i></button>
+                                    <button class="action-btn message" data-tooltip="Send message"><i class="fas fa-envelope"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="student-info">
+                                        <img src="https://via.placeholder.com/32" alt="Jane Smith" class="student-avatar">
+                                        <span>Jane Smith</span>
+                                    </div>
+                                </td>
+                                <td>12346</td>
+                                <td>Math 101</td>
+                                <td><span class="badge-warning">78%</span></td>
+                                <td>2026-03-05</td>
+                                <td><span class="badge-active">Active</span></td>
+                                <td>
+                                    <button class="action-btn view" data-tooltip="View student profile"><i class="fas fa-eye"></i></button>
+                                    <button class="action-btn edit" data-tooltip="Edit student info"><i class="fas fa-edit"></i></button>
+                                    <button class="action-btn message" data-tooltip="Send message"><i class="fas fa-envelope"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="student-info">
+                                        <img src="https://via.placeholder.com/32" alt="Bob Johnson" class="student-avatar">
+                                        <span>Bob Johnson</span>
+                                    </div>
+                                </td>
+                                <td>12347</td>
+                                <td>Science 201</td>
+                                <td><span class="badge-good">92%</span></td>
+                                <td>2026-03-05</td>
+                                <td><span class="badge-active">Active</span></td>
+                                <td>
+                                    <button class="action-btn view" data-tooltip="View student profile"><i class="fas fa-eye"></i></button>
+                                    <button class="action-btn edit" data-tooltip="Edit student info"><i class="fas fa-edit"></i></button>
+                                    <button class="action-btn message" data-tooltip="Send message"><i class="fas fa-envelope"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="student-info">
+                                        <img src="https://via.placeholder.com/32" alt="Alice Brown" class="student-avatar">
+                                        <span>Alice Brown</span>
+                                    </div>
+                                </td>
+                                <td>12348</td>
+                                <td>English 301</td>
+                                <td><span class="badge-low">65%</span></td>
+                                <td>2026-03-05</td>
+                                <td><span class="badge-inactive">Inactive</span></td>
+                                <td>
+                                    <button class="action-btn view" data-tooltip="View student profile"><i class="fas fa-eye"></i></button>
+                                    <button class="action-btn edit" data-tooltip="Edit student info"><i class="fas fa-edit"></i></button>
+                                    <button class="action-btn message" data-tooltip="Send message"><i class="fas fa-envelope"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="student-info">
+                                        <img src="https://via.placeholder.com/32" alt="Charlie Wilson" class="student-avatar">
+                                        <span>Charlie Wilson</span>
+                                    </div>
+                                </td>
+                                <td>12349</td>
+                                <td>Science 201</td>
+                                <td><span class="badge-good">88%</span></td>
+                                <td>2026-03-05</td>
+                                <td><span class="badge-active">Active</span></td>
+                                <td>
+                                    <button class="action-btn view" data-tooltip="View student profile"><i class="fas fa-eye"></i></button>
+                                    <button class="action-btn edit" data-tooltip="Edit student info"><i class="fas fa-edit"></i></button>
+                                    <button class="action-btn message" data-tooltip="Send message"><i class="fas fa-envelope"></i></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
