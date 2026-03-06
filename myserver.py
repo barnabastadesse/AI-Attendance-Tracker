@@ -6,14 +6,14 @@ class RedirectHandler(BaseHTTPRequestHandler):
         # Redirect only if path is root
         if self.path == '/' or self.path == '':
             self.send_response(302)
-            self.send_header('Location', '/portfolio')
+            self.send_header('Location', 'TheProject')
             self.end_headers()
             return
 
         # Remove query string and normalize path
         path = self.path.split('?', 1)[0]
-        if path == '/portfolio' or path == '/portfolio/':
-            file_path = os.path.join(os.getcwd(), 'portfolio', 'index.html')
+        if path == 'TheProject' or path == '/TheProject':
+            file_path = os.path.join(os.getcwd(), 'TheProject', 'index.html')
         else:
             file_path = os.path.join(os.getcwd(), path.lstrip('/'))
 
