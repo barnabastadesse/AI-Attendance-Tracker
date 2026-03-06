@@ -1,0 +1,63 @@
+/* basic reset */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0 1rem;
+    background: #f6f6f6;
+    color: #333;
+}
+header {
+    text-align: center;
+    padding: 1rem 0;
+    background: #fff;
+    border-bottom: 1px solid #ccc;
+}
+#lesson-info {
+    font-size: 0.9rem;
+    color: #666;
+    margin-top: 0.2rem;
+}
+.controls {
+    text-align: center;
+    margin: 1rem 0;
+}
+.controls .toggle {
+    padding: 0.5rem 1rem;
+    margin: 0 0.25rem;
+    border: 1px solid #888;
+    background: #fff;
+    cursor: pointer;
+}
+.controls .toggle.active {
+    background: #4caf50;
+    color: #fff;
+    border-color: #4caf50;
+}
+.summary {
+    text-align: center;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+.summary span {
+    margin: 0 1rem;
+}
+.students table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+}
+.students th,
+.students td {
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+.students tr.present {
+    background: #e0ffe0;
+}
+.students tr.absent {
+    background: #ffe0e0;
+}
+.students tr:hover {
+    background: #f0f0f0;
+}

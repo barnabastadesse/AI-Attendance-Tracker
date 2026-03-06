@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>English 201 Attendance</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>English 201 - Attendance Tracker</h1>
+        <div id="lesson-info">
+            <span id="lesson-date"></span>
+            <span id="lesson-time"></span>
+        </div>
+    </header>
+
+    <section class="controls">
+        <button id="show-all" class="toggle active">All</button>
+        <button id="show-present" class="toggle">Present</button>
+        <button id="show-absent" class="toggle">Absent</button>
+    </section>
+
+    <section class="summary">
+        <span>Total: <strong id="total-count">0</strong></span>
+        <span>Present: <strong id="present-count">0</strong></span>
+        <span>Absent: <strong id="absent-count">0</strong></span>
+    </section>
+
+    <section class="students">
+        <table id="attendance-table">
+            <thead>
+                <tr>
+                    <th>Student</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- sample list; teacher can edit or generate dynamically -->
+                <tr>
+                    <td>Alice Johnson</td>
+                    <td><input type="checkbox" class="present-checkbox"></td>
+                </tr>
+                <tr>
+                    <td>Bob Smith</td>
+                    <td><input type="checkbox" class="present-checkbox"></td>
+                </tr>
+                <tr>
+                    <td>Clara Nguyen</td>
+                    <td><input type="checkbox" class="present-checkbox"></td>
+                </tr>
+                <tr>
+                    <td>David Lee</td>
+                    <td><input type="checkbox" class="present-checkbox"></td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <script>
+        // initialize lesson info
+        const dateEl = document.getElementById('lesson-date');
+        const timeEl = document.getElementById('lesson-time');
+        const now = new Date();
+        dateEl.textContent = now.toLocaleDateString();
+        timeEl.textContent = now.toLocaleTimeString();
+
+        const tableBody = document.querySelector('#attendance-table tbody');
+        const presentCountEl = document.getElementById('present-count');
+        const absentCountEl = document.getElementById('absent-count');
+        const totalCountEl = document.getElementById('total-count');
+
+        function updateRowStyles() {
+            let present = 0;
+            let absent = 0;
+            tableBody.querySelectorAll('tr').forEach(row => {
+                const checkbox = row.querySelector('.present-checkbox');
+                if (checkbox.checked) {
+                    row.classList.add('present');
+                    row.classList.remove('absent');
+                    present++;
+                } else {
+                    row.classList.add('absent');
+                    row.classList.remove('present');
+                    absent++;
+                }
+            });
+            totalCountEl.textContent = present + absent;
+            presentCountEl.textContent = present;
+            absentCountEl.textContent = absent;
+        }
+
+        tableBody.addEventListener('change', (e) => {
+            if (e.target.classList.contains('present-checkbox')) {
+                updateRowStyles();
+            }
+        });
+
+        // filters
+        const filters = document.querySelectorAll('.controls .toggle');
+        function clearFilterButtons() {
+            filters.forEach(btn => btn.classList.remove('active'));
+        }
+
+        document.getElementById('show-all').addEventListener('click', () => {
+            clearFilterButtons();
+            document.getElementById('show-all').classList.add('active');
+            tableBody.querySelectorAll('tr').forEach(r => r.style.display = '');
+        });
+        document.getElementById('show-present').addEventListener('click', () => {
+            clearFilterButtons();
+            document.getElementById('show-present').classList.add('active');
+            tableBody.querySelectorAll('tr').forEach(r => {
+                r.style.display = r.classList.contains('present') ? '' : 'none';
+            });
+        });
+        document.getElementById('show-absent').addEventListener('click', () => {
+            clearFilterButtons();
+            document.getElementById('show-absent').classList.add('active');
+            tableBody.querySelectorAll('tr').forEach(r => {
+                r.style.display = r.classList.contains('absent') ? '' : 'none';
+            });
+        });
+
+        // initial stats
+        updateRowStyles();
+    </script>
+</body>
+</html>
