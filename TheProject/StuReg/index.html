@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Management System | Add Student</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1><i class="fas fa-user-graduate"></i> Student Management System</h1>
+            <p>Add new students to the database</p>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Add Student Form -->
+            <div class="form-container">
+                <h2><i class="fas fa-plus-circle"></i> Add New Student</h2>
+                
+                <form id="studentForm" class="student-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="fullName">
+                                <i class="fas fa-user"></i> Full Name <span class="required">*</span>
+                            </label>
+                            <input 
+                                type="text" 
+                                id="fullName" 
+                                name="fullName" 
+                                placeholder="Enter student's full name"
+                                required
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="studentId">
+                                <i class="fas fa-id-card"></i> Student ID <span class="required">*</span>
+                            </label>
+                            <input 
+                                type="text" 
+                                id="studentId" 
+                                name="studentId" 
+                                placeholder="e.g., STU-2024-001"
+                                required
+                            >
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="class">
+                                <i class="fas fa-chalkboard-teacher"></i> Class <span class="required">*</span>
+                            </label>
+                            <select id="class" name="class" required>
+                                <option value="" disabled selected>Select a class</option>
+                                <option value="Mathematics 101">Mathematics 101</option>
+                                <option value="Physics 201">Physics 201</option>
+                                <option value="Chemistry 101">Chemistry 101</option>
+                                <option value="Biology 202">Biology 202</option>
+                                <option value="Computer Science 301">Computer Science 301</option>
+                                <option value="English Literature 101">English Literature 101</option>
+                                <option value="History 201">History 201</option>
+                                <option value="Art 101">Art 101</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="section">
+                                <i class="fas fa-layer-group"></i> Section
+                            </label>
+                            <input 
+                                type="text" 
+                                id="section" 
+                                name="section" 
+                                placeholder="e.g., A, B, C"
+                            >
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">
+                                <i class="fas fa-envelope"></i> Email Address
+                            </label>
+                            <input 
+                                type="email" 
+                                id="email" 
+                                name="email" 
+                                placeholder="student@example.com"
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">
+                                <i class="fas fa-phone"></i> Phone Number
+                            </label>
+                            <input 
+                                type="tel" 
+                                id="phone" 
+                                name="phone" 
+                                placeholder="(555) 123-4567"
+                            >
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="dateOfBirth">
+                                <i class="fas fa-calendar"></i> Date of Birth
+                            </label>
+                            <input 
+                                type="date" 
+                                id="dateOfBirth" 
+                                name="dateOfBirth"
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="gender">
+                                <i class="fas fa-venus-mars"></i> Gender
+                            </label>
+                            <select id="gender" name="gender">
+                                <option value="" disabled selected>Select gender</option>
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                                <option value="other">Other</option>
+                                <option value="prefer-not">Prefer not to say</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="address">
+                            <i class="fas fa-map-marker-alt"></i> Address
+                        </label>
+                        <textarea 
+                            id="address" 
+                            name="address" 
+                            rows="3" 
+                            placeholder="Enter student's address"
+                        ></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="guardianName">
+                            <i class="fas fa-users"></i> Guardian/Parent Name
+                        </label>
+                        <input 
+                            type="text" 
+                            id="guardianName" 
+                            name="guardianName" 
+                            placeholder="Enter guardian's full name"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="guardianPhone">
+                            <i class="fas fa-phone-alt"></i> Guardian Phone
+                        </label>
+                        <input 
+                            type="tel" 
+                            id="guardianPhone" 
+                            name="guardianPhone" 
+                            placeholder="Guardian's contact number"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="enrollmentDate">
+                            <i class="fas fa-calendar-check"></i> Enrollment Date
+                        </label>
+                        <input 
+                            type="date" 
+                            id="enrollmentDate" 
+                            name="enrollmentDate"
+                            value="<?php echo date('Y-m-d'); ?>"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="status">
+                            <i class="fas fa-toggle-on"></i> Status
+                        </label>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="status" value="active" checked> 
+                                <span class="radio-custom"></span>
+                                Active
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="status" value="inactive"> 
+                                <span class="radio-custom"></span>
+                                Inactive
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="status" value="graduated"> 
+                                <span class="radio-custom"></span>
+                                Graduated
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="notes">
+                            <i class="fas fa-sticky-note"></i> Additional Notes
+                        </label>
+                        <textarea 
+                            id="notes" 
+                            name="notes" 
+                            rows="2" 
+                            placeholder="Any additional information about the student"
+                        ></textarea>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="reset" class="btn btn-secondary">
+                            <i class="fas fa-undo"></i> Reset
+                        </button>
+                        <button type="submit" class="btn btn-primary" onclick="submitStudentForm(event)">
+                            <i class="fas fa-save"></i> Save Student
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Recent Students Sidebar -->
+            <div class="sidebar">
+                <div class="recent-students">
+                    <h3><i class="fas fa-clock"></i> Recently Added</h3>
+                    <div class="student-list" id="recentStudents">
+                        <!-- Recent students will appear here -->
+                        <div class="student-item">
+                            <div class="student-avatar">
+                                <i class="fas fa-user-circle"></i>
+                            </div>
+                            <div class="student-info">
+                                <h4>John Smith</h4>
+                                <p>ID: STU-2024-001 | Mathematics 101</p>
+                                <small>Added 2 minutes ago</small>
+                            </div>
+                        </div>
+                        <div class="student-item">
+                            <div class="student-avatar">
+                                <i class="fas fa-user-circle"></i>
+                            </div>
+                            <div class="student-info">
+                                <h4>Emily Johnson</h4>
+                                <p>ID: STU-2024-002 | Physics 201</p>
+                                <small>Added 15 minutes ago</small>
+                            </div>
+                        </div>
+                        <div class="student-item">
+                            <div class="student-avatar">
+                                <i class="fas fa-user-circle"></i>
+                            </div>
+                            <div class="student-info">
+                                <h4>Michael Brown</h4>
+                                <p>ID: STU-2024-003 | Chemistry 101</p>
+                                <small>Added 1 hour ago</small>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#" class="view-all-link">
+                        View All Students <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <div class="stats-card">
+                    <h3><i class="fas fa-chart-bar"></i> Quick Stats</h3>
+                    <div class="stat-item">
+                        <span class="stat-label">Total Students:</span>
+                        <span class="stat-value" id="totalStudents">156</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Active Today:</span>
+                        <span class="stat-value" id="activeToday">12</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Classes:</span>
+                        <span class="stat-value" id="totalClasses">8</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Modal (Hidden by default) -->
+    <div id="successModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h3>Success!</h3>
+            <p>Student has been successfully added to the database.</p>
+            <button class="btn btn-primary" onclick="closeModal()">OK</button>
+        </div>
+    </div>
+
+    <script>
+        function submitStudentForm(event) {
+            event.preventDefault();
+            
+            // Get form values
+            const fullName = document.getElementById('fullName').value;
+            const studentId = document.getElementById('studentId').value;
+            const studentClass = document.getElementById('class').value;
+            
+            // Basic validation
+            if (!fullName || !studentId || !studentClass) {
+                alert('Please fill in all required fields (Name, Student ID, Class)');
+                return;
+            }
+            
+            // Here you would typically send data to your database
+            // For demonstration, we'll show a success message
+            console.log('Student Data:', {
+                fullName,
+                studentId,
+                class: studentClass,
+                section: document.getElementById('section').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                dateOfBirth: document.getElementById('dateOfBirth').value,
+                gender: document.getElementById('gender').value,
+                address: document.getElementById('address').value,
+                guardianName: document.getElementById('guardianName').value,
+                guardianPhone: document.getElementById('guardianPhone').value,
+                enrollmentDate: document.getElementById('enrollmentDate').value,
+                status: document.querySelector('input[name="status"]:checked').value,
+                notes: document.getElementById('notes').value
+            });
+            
+            // Show success modal
+            document.getElementById('successModal').style.display = 'flex';
+            
+            // Update recent students list (demo)
+            updateRecentStudents(fullName, studentId, studentClass);
+            
+            // Reset form (optional)
+            // document.getElementById('studentForm').reset();
+        }
+        
+        function updateRecentStudents(name, id, studentClass) {
+            const recentList = document.getElementById('recentStudents');
+            const newStudent = document.createElement('div');
+            newStudent.className = 'student-item';
+            newStudent.innerHTML = `
+                <div class="student-avatar">
+                    <i class="fas fa-user-circle"></i>
+                </div>
+                <div class="student-info">
+                    <h4>${name}</h4>
+                    <p>ID: ${id} | ${studentClass}</p>
+                    <small>Added just now</small>
+                </div>
+            `;
+            
+            recentList.insertBefore(newStudent, recentList.firstChild);
+            
+            // Keep only last 5 students
+            while (recentList.children.length > 5) {
+                recentList.removeChild(recentList.lastChild);
+            }
+            
+            // Update stats (demo)
+            const totalStudents = document.getElementById('totalStudents');
+            totalStudents.textContent = parseInt(totalStudents.textContent) + 1;
+        }
+        
+        function closeModal() {
+            document.getElementById('successModal').style.display = 'none';
+        }
+        
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('successModal');
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>
